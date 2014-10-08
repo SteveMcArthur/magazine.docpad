@@ -1,0 +1,79 @@
+---
+layout: 'base'
+referencesOthers: true
+---
+
+<% {midbar, sidebar, items}  = @getFrontPage() %>
+
+
+<div class="mid-bar">
+    <div class="row full">
+        <div class="large-12 columns content-holder left">
+            <article class="entry-item standard-post widget">
+                <div class="entry-content">
+                    <header>
+                        <h3 class="entry-title clearfix"><a href="<%=midbar.url%>"><%-midbar.title%></a></h3>
+
+                        <div class="clear"></div>
+                    </header>
+                       <div class="entry-thumb">
+                            <img src="<%-midbar.img%>" alt="">
+                        </div>
+                        <%-midbar.contentRenderedWithoutLayouts%>
+                </div>
+            </article>
+        </div>
+
+    </div>
+</div>
+
+<div class="content-bar">
+    <div class="row full">
+        <div class="large-9 columns content-holder left">
+            <div class="widget">
+                <article class="entry-item clearfix">
+                  
+                    <div class="entry-content">
+                        <header>
+                            <h3 class="title clearfix"><a href="#"><%-items[0].title%></a></h3>
+
+                            <div class="clear"></div>
+                        </header>
+                        <%if items[0].img:%>
+                        <div class="entry-thumb">
+                            <img src="<%=items[0].img%>" alt="">
+                        </div>
+                        <%end%>
+                       <%-items[0].contentRenderedWithoutLayouts%>
+                    </div>
+                </article>
+            </div>
+            <div class="widget">
+                    <div class="entry-content">
+                        <header>
+                            <h3 class="title clearfix"><a href="#"><%-items[1].title%></a></h3>
+                            <div class="clear"></div>
+                        </header>
+                        <%if items[0].img:%>
+                        <div class="entry-thumb">
+                            <img src="<%=items[1].img%>" alt="">
+                        </div>
+                        <%end%>
+                      <%-items[1].contentRenderedWithoutLayouts%>
+                    </div>
+                </article>
+            </div>
+
+
+        </div>
+        <div class="large-3 columns content-holder right">
+
+            <h4 class="title"><a href="<%=sidebar.url%>"><%-sidebar.title%></a></h4>
+            <div class="large-12 columns">
+                <div class="widget">
+                    <%-sidebar.contentRenderedWithoutLayouts%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
